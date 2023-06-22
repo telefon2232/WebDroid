@@ -2,12 +2,13 @@ package main
 
 import (
 	"fmt"
-	"github.com/electricbubble/gadb"
 	"html/template"
 	"log"
 	"net/http"
 	"strconv"
 	"strings"
+
+	"github.com/electricbubble/gadb"
 )
 
 var CoreStatus = map[string]string{"Off": "0", "On": "1"}
@@ -44,16 +45,17 @@ func Simple(w http.ResponseWriter, r *http.Request) {
 			if strings.Contains(i, "Freq") {
 				if i == "Freq_0" {
 					for j := 0; j < 4; j++ {
+						dev.RunShellCommand("su -c 'echo userspace >  /sys/devices/system/cpu/cpu" + strconv.Itoa(j) + "/cpufreq/scaling_governor'")
 						dev.RunShellCommand("su -c 'echo " + v[0] + " >  /sys/devices/system/cpu/cpu" + strconv.Itoa(j) + "/cpufreq/scaling_setspeed'")
-						dev.RunShellCommand("su -c 'echo " + v[0] + " >  /sys/devices/system/cpu/cpu" + strconv.Itoa(j) + "/cpufreq/scaling_max_freq'")
+						dev.RunShellCommand("su -c 'echo " + v[0] + " >  /sys/devices/system/cpu/cpu" + strconv.Itoa(j) + "/cpufreq/scaling_max_freq_test'")
 
 					}
 				}
 				if i == "Freq_4" {
 					for j := 4; j < 8; j++ {
-
+						dev.RunShellCommand("su -c 'echo userspace >  /sys/devices/system/cpu/cpu" + strconv.Itoa(j) + "/cpufreq/scaling_governor'")
 						dev.RunShellCommand("su -c 'echo " + v[0] + " >  /sys/devices/system/cpu/cpu" + strconv.Itoa(j) + "/cpufreq/scaling_setspeed'")
-						dev.RunShellCommand("su -c 'echo " + v[0] + " >  /sys/devices/system/cpu/cpu" + strconv.Itoa(j) + "/cpufreq/scaling_max_freq'")
+						dev.RunShellCommand("su -c 'echo " + v[0] + " >  /sys/devices/system/cpu/cpu" + strconv.Itoa(j) + "/cpufreq/scaling_max_freq_test'")
 					}
 				}
 			}
@@ -89,6 +91,7 @@ func MainPage(w http.ResponseWriter, r *http.Request) {
 			}
 
 			if strings.Contains(i, "Freq") {
+				dev.RunShellCommand("su -c 'echo userspace >  /sys/devices/system/cpu/cpu" + FreqNumber[i] + "/cpufreq/scaling_governor'")
 				dev.RunShellCommand("su -c 'echo " + v[0] + " >  /sys/devices/system/cpu/cpu" + FreqNumber[i] + "/cpufreq/scaling_setspeed'")
 				dev.RunShellCommand("su -c 'echo " + v[0] + " >  /sys/devices/system/cpu/cpu" + FreqNumber[i] + "/cpufreq/scaling_max_freq'")
 

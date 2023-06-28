@@ -1,0 +1,108 @@
+<html>
+<head>
+  <title>WebDroid</title>
+  <link rel="stylesheet" href="static/style.css">
+</head>
+<body>
+
+<p>You can set freq and cores on tablet with adb connect via USB</p>
+<p>Device name: {{.Model}}</p>
+
+<div class="super_div">
+  <form action="/simple" method="post">
+    <div id="selected">
+
+      <p class="text_titles">Select params for 0-3 cores</p>
+      <select id="Freq_0" name="Freq_0" style="inline-block" >
+        <option>2001000</option>
+        <option>1961000</option>
+        <option>1927000</option>
+        <option>1897000</option>
+        <option>1868000</option>
+        <option>1838000</option>
+        <option>1809000</option>
+        <option>1779000</option>
+        <option>1750000</option>
+        <option>1617000</option>
+        <option>1484000</option>
+        <option>1351000</option>
+        <option>1218000</option>
+        <option>1085000</option>
+        <option>979000</option>
+        <option>900000</option>
+      </select>
+
+      <p style="display:inline">Core 0:</p>
+      <select id="Core_0" name="Core_0" style="inline-block" >
+        <option>On</option>
+        <option>Off</option>
+      </select>
+      <p style="display:inline">Core 1:</p>
+      <select id="Core_1" name="Core_1" style="inline-block" >
+        <option>On</option>
+        <option>Off</option>
+      </select>
+
+      <p style="display:inline">Core 2:</p>
+      <select id="Core_2" name="Core_2" style="inline-block" >
+        <option>On</option>
+        <option>Off</option>
+      </select>
+
+      <p style="display:inline">Core 3:</p>
+      <select id="Core_3" name="Core_3" style="inline-block" >
+        <option>On</option>
+        <option>Off</option>
+      </select>
+
+      <p class="text_titles">Select params for 4-7 cores</p>
+
+      <select id="Freq_4" name="Freq_4" style="inline-block">
+        <option>1500000</option>
+        <option>1429000</option>
+        <option>1367000</option>
+        <option>1314000</option>
+        <option>1261000</option>
+        <option>1208000</option>
+        <option>1155000</option>
+        <option>1102000</option>
+        <option>1050000</option>
+        <option>948000</option>
+        <option>846000</option>
+        <option>745000</option>
+        <option>643000</option>
+        <option>542000</option>
+        <option>501000</option>
+        <option>400000</option>
+      </select>
+
+      <p style="display:inline">Core 4:</p>
+      <select id="Core_4" name="Core_4" style="inline-block" >
+        <option>On</option>
+        <option>Off</option>
+      </select>
+      <p style="display:inline">Core 5:</p>
+      <select id="Core_5" name="Core_5" style="inline-block" >
+        <option>On</option>
+        <option>Off</option>
+      </select>
+
+      <p style="display:inline">Core 6:</p>
+      <select id="Core_6" name="Core_6" style="inline-block" >
+        <option>On</option>
+        <option>Off</option>
+      </select>
+
+      <p style="display:inline">Core 7:</p>
+      <select id="Core_7" name="Core_7" style="inline-block" >
+        <option>On</option>
+        <option>Off</option>
+      </select>
+
+      <p></p>
+      <input id="sub" type="submit" value="Submit">
+    </div>
+  </form>
+</div>
+</body>
+</html>

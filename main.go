@@ -108,6 +108,9 @@ func main() {
 
 	http.HandleFunc("/main", MainPage)
 	http.HandleFunc("/simple", Simple)
+	http.HandleFunc("/simple_kvadra", Simple)
+	http.HandleFunc("/simple_mipad4", Simple)
+	http.HandleFunc("/simple_tcl10s", Simple)
 
 	err := http.ListenAndServe(":80", nil) // setting listening port
 	if err != nil {

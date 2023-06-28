@@ -28,7 +28,7 @@ func Simple(w http.ResponseWriter, r *http.Request) {
 
 	if r.Method == "GET" {
 
-		t, _ := template.ParseFiles("simple.html")
+		t, _ := template.ParseFiles(strings.TrimPrefix(r.URL.Path, "/") + ".html")
 		t.Execute(w, name)
 	}
 	if r.Method == "POST" {
